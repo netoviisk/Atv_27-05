@@ -1,0 +1,40 @@
+package entidade;
+
+public class Arquivo {
+	
+    private int kbytes;
+    private double preco;
+    private String autor;
+
+    public Arquivo() {
+    }
+
+    public Arquivo(int k, double p, String a) {
+        this.kbytes = k;
+        this.preco = p;
+        this.autor = a;
+    }
+
+    public String getTipo() {
+        return "Arquivo";
+    }
+
+    public String getDetalhes() {
+        return "Autor: " + autor + ", Tamanho: " + kbytes + " KB, Preço: " + preco;
+    }
+
+    public void printDados() {
+        System.out.println(getDetalhes());
+    }
+
+    public void inserirDados() {
+    }
+
+    public double getPreco() {
+        return preco;
+    }
+
+    public void setPreco(double preco) {
+        this.preco = preco;
+    }
+}
