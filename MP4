@@ -1,0 +1,35 @@
+package entidade;
+
+public class MP4 extends Arquivo {
+    private int nVisitas;
+
+    public MP4() {
+    }
+
+    public MP4(int k, double p, String a, int v) {
+        super(k, p, a);
+        this.nVisitas = v;
+    }
+
+    @Override
+    public String getTipo() {
+        return "MP4";
+    }
+
+    @Override
+    public String getDetalhes() {
+        return super.getDetalhes() + ", Visitas: " + nVisitas;
+    }
+
+    public void setnVisitas(int v) {
+        this.nVisitas = v;
+    }
+
+    public int getnVisitas() {
+        return nVisitas;
+    }
+
+    @Override
+    public void inserirDados() {
+    }
+}
