@@ -1,0 +1,35 @@
+package entidade;
+
+public class MP3 extends Arquivo {
+    private int nDownloads;
+
+    public MP3() {
+    }
+
+    public MP3(int k, double p, String a, int d) {
+        super(k, p, a);
+        this.nDownloads = d;
+    }
+
+    @Override
+    public String getTipo() {
+        return "MP3";
+    }
+
+    @Override
+    public String getDetalhes() {
+        return super.getDetalhes() + ", Downloads: " + nDownloads;
+    }
+
+    public void setnDownloads(int d) {
+        this.nDownloads = d;
+    }
+
+    public int getnDownloads() {
+        return nDownloads;
+    }
+
+    @Override
+    public void inserirDados() {
+    }
+}
