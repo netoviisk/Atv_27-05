@@ -1,0 +1,60 @@
+package solucao;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import entidade.Arquivo;
+import entidade.MP3;
+import entidade.MP4;
+
+public class Main {
+    public static void main(String[] args) {
+        Random rand = new Random();
+        List<Arquivo> arquivos = new ArrayList<>();
+
+        for (int i = 0; i < 4; i++) {
+            if (rand.nextBoolean()) {
+                MP3 mp3 = new MP3(
+                        rand.nextInt(10000),            
+                        rand.nextDouble() * 10,        
+                        "Autor MP3-" + i,              
+                        rand.nextInt(10000)            
+                );
+                arquivos.add(mp3);
+            } else {
+
+                MP4 mp4 = new MP4(
+                        rand.nextInt(10000),         
+                        rand.nextDouble() * 10,      
+                        "Autor MP4-" + i,              
+                        rand.nextInt(20000)             
+                );
+                arquivos.add(mp4);
+            }
+        }
+
+        System.out.println("Arquivos após criação:");
+        for (Arquivo arquivo : arquivos) {
+            arquivo.printDados();
+        }
+
+        for (Arquivo arquivo : arquivos) {
+            if (arquivo instanceof MP3) {
+                MP3 mp3 = (MP3) arquivo;
+                if (mp3.getnDownloads() > 5000) {
+                    mp3.setPreco(mp3.getPreco() * 1.05);
+                }
+            } else if (arquivo instanceof MP4) {
+                MP4 mp4 = (MP4) arquivo;
+                if (mp4.getnVisitas() > 10000) {
+                    mp4.setPreco(mp4.getPreco() * 1.08);
+                }
+            }
+        }
+
+        System.out.println("\nArquivos após ajuste de preços:");
+        for (Arquivo arquivo : arquivos) {
+            arquivo.printDados();
+        }
+    }
+}
